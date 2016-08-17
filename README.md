@@ -34,7 +34,7 @@ _This webpage will incorporate HTML, CSS, Javascript, and JQuery to translate a 
 * _Example Input: at_
 * _Example Output: atay_
 
-###### The program translates a word beginning with a single consonant by moving that consonant to the end of the word and adding "ay".
+###### The program translates a word beginning with a single consonant by moving that consonant to the end of the word and adding "ay". PASSED
 * _Example Input: to_
 * _Example Output: otay_
 
