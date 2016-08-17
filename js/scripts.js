@@ -1,13 +1,16 @@
 var pigLatin = function(preSentence) {
-  if (preSentence === "a" || preSentence === "e" || preSentence === "i" || preSentence === "o" || preSentence ===  "u") {
+  if ((preSentence === "a") || (preSentence === "e") || (preSentence === "i") || (preSentence === "o") || (preSentence ===  "u")) {
     return preSentence + "ay";
-  } else if (preSentence !== "a", "e", "i", "o", "u") {
+  } else if ((preSentence === "A") || (preSentence === "E") || (preSentence === "I") || (preSentence === "O") || (preSentence === "U")) {
+    return preSentence + "ay";
+  } else if ((preSentence !== "a") || (preSentence !== "e") || (preSentence !== "i") || (preSentence !== "o") || (preSentence !==  "u")) {
     return false;
-
+    console.log("not a vowel");
   } else {
     return false;
+    console.log("not a character");
   }
-}
+};
 
 $(function() {
   $("form#pig-latin").submit(function(event) {
