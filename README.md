@@ -18,6 +18,10 @@ _This webpage will incorporate HTML, CSS, Javascript, and JQuery to translate a 
 * _Example Input: s_
 * _Example Output: s_
 
+###### The program returns a single letter vowel.
+* _Example Input: a_
+* _Example Output: a_
+
 ###### The program adds "ay" to single-letter words beginning with a vowel.
 * _Example Input: i_
 * _Example Output: iay_

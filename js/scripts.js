@@ -1,5 +1,11 @@
 var pigLatin = function(preSentence) {
-  return false;
+  if (preSentence === "a", "e", "i", "o", "u") {
+    return true;
+  } else if (preSentence !== "a", "e", "i", "o", "u") {
+    return false;
+  } else {
+    return false;
+  }
 }
 
 $(function() {
