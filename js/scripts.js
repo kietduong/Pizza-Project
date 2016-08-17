@@ -1,14 +1,18 @@
 var pigLatin = function(preSentence) {
-  if ((preSentence === "a") || (preSentence === "e") || (preSentence === "i") || (preSentence === "o") || (preSentence ===  "u")) {
+  if ((preSentence.charAt(0) === "a") || (preSentence.charAt(0) === "e") || (preSentence.charAt(0) === "i") || (preSentence.charAt(0) === "o") || (preSentence.charAt(0) ===  "u")) {
     return preSentence + "ay";
-  } else if ((preSentence === "A") || (preSentence === "E") || (preSentence === "I") || (preSentence === "O") || (preSentence === "U")) {
+  } else if ((preSentence.charAt(0) === "A") || (preSentence.charAt(0) === "E") || (preSentence.charAt(0) === "I") || (preSentence.charAt(0) === "O") || (preSentence.charAt(0) === "U")) {
     return preSentence + "ay";
-  } else if ((preSentence !== "a") || (preSentence !== "e") || (preSentence !== "i") || (preSentence !== "o") || (preSentence !==  "u")) {
-    return false;
-    console.log("not a vowel");
+  } else if ((preSentence.charAt(0) !== "a") || (preSentence.charAt(0) !== "e") || (preSentence.charAt(0) !== "i") || (preSentence.charAt(0) !== "o") || (preSentence.charAt(0) !==  "u")) {
+    var preSentenceArray = preSentence.split("");
+    var preSentenceFirstLetter = preSentenceArray.shift();
+    preSentenceArray.push(preSentenceFirstLetter);
+    var postSentence = preSentenceArray.join("");
+    console.log(postSentence);
+    return postSentence + "ay";
   } else {
-    return false;
     console.log("not a character");
+    return preSentence;
   }
 };
 

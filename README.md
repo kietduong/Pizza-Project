@@ -10,27 +10,27 @@ _This webpage will incorporate HTML, CSS, Javascript, and JQuery to translate a 
 
 ###### Specs:
 
-###### The program does nothing to non-alphabetical characters, since they do not contain consonants or vowels.
+###### The program does nothing to non-alphabetical characters, since they do not contain consonants or vowels. PASSED
 * _Example Input: 3_
 * _Example Output: 3_
 
-###### The program does nothing to single letter consonants since there are no single letter consonant words.
+###### The program does nothing to single letter consonants since there are no single letter consonant words. PASSED
 * _Example Input: s_
 * _Example Output: s_
 
-###### The program returns a single letter vowel.
+###### The program returns a single letter vowel. PASSED
 * _Example Input: a_
 * _Example Output: a_
 
-###### The program adds "ay" to single-letter words beginning with a vowel.
+###### The program adds "ay" to single-letter words beginning with a vowel. PASSED
 * _Example Input: i_
 * _Example Output: iay_
 
-###### The program recognizes vowels regardless of case and adds "ay" to the single letter word.
+###### The program recognizes vowels regardless of case and adds "ay" to the single letter word. PASSED
 * _Example Input: I_
 * _Example Output: Iay_
 
-###### The program adds "ay" to multi letter words beginning with a vowel.
+###### The program adds "ay" to multi letter words beginning with a vowel. PASSED
 * _Example Input: at_
 * _Example Output: atay_
 
