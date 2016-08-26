@@ -1,66 +1,90 @@
-///Back End
-function order () {
-  this.pizza = [];
-  this.cost = 0
+// Back End
+function AllOrders () {
+  this.pizzaTotal = [];
+  this.costTotal = 0;
 }
 
-function pizza (size, toppings, selected) {
-  this.pSize = pizzaSize
-  this.pTopping = pizzaToppings
-  this.selectedToppings = selected
+function Pizza (toppings, size, chosen) {
+  this.pizzaToppings = toppings;
+  this.pizzaSize = size;
+  this.chosenToppings = chosen;
 }
 
-pizza.prototype.toppingsSelected = function (size, toppings) {
-  for ( i = 0; i < this.selectedToppings.length; i =+ 1) {
-    if (this.selected toppings[i].selected) {
-      this.ptoppings += 1;
+Pizza.prototype.costOfToppings = function (chosen, toppings) {
+  for (i = 0; i < this.chosenToppings.length; i += 1) {
+    if (this.chosenToppings[i].checked) {
+      this.pizzaToppings += 1;
     }
   }
 }
 
-pizza.prototype.pizzaCost =  function(size, toppings) {
-  var pizzaTotal = this.pSize + this.pToppings;
-  return pizzaTotal
+Pizza.prototype.costOfPizza = function (toppings, size) {
+  var pizzaPrice = this.pizzaToppings + this.pizzaSize;
+  return pizzaPrice;
 }
 
-//Front End
-$(document).ready(function() {
-  $("#pizzaSubmit").click(function() {
-    $("#size").append(
-        '<h2>size</h2>'+ '<div class = "pizza-complete">' +
-            '<div class="zaasize">' + '<select class="size">' + '<option id = "sm">small</option>' + '<option id = "md">medium</option>' + '<option id "lg">large</option>' + '</select>' + '<h2>toppings</h2>' + '<div class="zaatoppings">' +   '<select class="toppings">' + '<option id = "pepperoni">pepperoni</option>' + '<option id = "sausage">sausage</option>' + '</select>'
+function resetFields() {
+  $("select.new-pizza-size").val("");
+  $('input:checkbox').removeAttr('checked');
+}
+
+// Front End
+$(document).ready(function(){
+
+  $("#add-more-pizza").click(function(){
+    $("#extra-pizzas").append('<p>___________________________________</p>' +
+                              '<h2>Sizes</h2>' +
+                              '<div class="another-pizza">' +
+                              '<select class="form-control new-pizza-size">' +
+                               '<option id="size1" value="6">Small</option>' +
+                               '<option id="size2" value="8">Medium</option>' +
+                               '<option id="size3" value="10">Large</option>' +
+                               '</select>' +
+                               '<h2>Toppings</h2>' +
+                               '<h3>Each topping is an extra $0.50</h3>' +
+                               '<div class="checkbox">' +
+                               '<label><input type="checkbox" name="toppings" value="1">Extra Cheese</label>' +
+                               '</div>' +
+                               '<div class="checkbox">' +
+                               '<label><input type="checkbox" name="toppings" value="1">Mushrooms</label>' +
+                               '</div>' +
+                               '<div class="checkbox">' +
+                               '<label><input type="checkbox" name="toppings" value="1">Peppers</label>' +
+                               '</div>' +
+                               '<div class="checkbox">' +
+                               '<label><input type="checkbox" name="toppings" value="1">Sausage</label>' +
+                               '</div>' +
+                               '</div>'
     );
   });
 
-  $()
-})
+  $("#new-pizza-order").submit(function(event){
+    event.preventDefault();
+
+    var newAllOrders = new AllOrders ();
+    var overallTotal = newAllOrders.costTotal;
+
+    $(".another-pizza").each(function() {
+      var inputtedPizzaSize = parseInt( $(this).find( $("select.new-pizza-size") ) .val());
+      var inputtedPizzaToppings = 0;
+      var checkedBoxes = $(this).find( document.getElementsByName("toppings") );
+
+      var newPizza = new Pizza(inputtedPizzaToppings, inputtedPizzaSize, checkedBoxes);
+
+      newAllOrders.pizzaTotal.push(newPizza);
+
+      newPizza.costOfToppings();
+
+      var pizzaNumber = newAllOrders.pizzaTotal.indexOf(newPizza);
 
 
+      $("#show-pizza-results").show();
+      $("#pizza-price").append("<li> Pizza " + (pizzaNumber + 1) + ": $" + newPizza.costOfPizza() + "</li>");
+      overallTotal = overallTotal + newPizza.costOfPizza();
+    });
 
-// var pigLatin = function(preSentence) {
-//   if ((preSentence.charAt(0) === "a") || (preSentence.charAt(0) === "e") || (preSentence.charAt(0) === "i") || (preSentence.charAt(0) === "o") || (preSentence.charAt(0) ===  "u")) {
-//     return preSentence + "ay";
-//   } else if ((preSentence.charAt(0) === "A") || (preSentence.charAt(0) === "E") || (preSentence.charAt(0) === "I") || (preSentence.charAt(0) === "O") || (preSentence.charAt(0) === "U")) {
-//     return preSentence + "ay";
-//   } else if ((preSentence.charAt(0) !== "a") || (preSentence.charAt(0) !== "e") || (preSentence.charAt(0) !== "i") || (preSentence.charAt(0) !== "o") || (preSentence.charAt(0) !==  "u")) {
-//     var preSentenceArray = preSentence.split("");
-//     var preSentenceFirstLetter = preSentenceArray.shift();
-//     preSentenceArray.push(preSentenceFirstLetter);
-//     var postSentence = preSentenceArray.join("");
-//     console.log(postSentence);
-//     return postSentence + "ay";
-//   } else {
-//     console.log("not a character");
-//     return preSentence;
-//   }
-// };
-//
-// $(function() {
-//   $("form#pig-latin").submit(function(event) {
-//     event.preventDefault();
-//     var preSentence = $("input#pre-sentence").val();
-//     var result = pigLatin(preSentence);
-//
-//     $(".post-sentence").text(result);
-//   });
+    $("#complete-total").text("Your Total Order is $" + overallTotal);
+    resetFields();
+
+  });
 });

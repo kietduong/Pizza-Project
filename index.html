@@ -8,46 +8,52 @@
     <title>It's A Trap Pizza</title>
   </head>
   <body>
-    <div class="container">
-      <h1>Order Thy Pizza</h1>
-      <div class="row">
-        <div class="col-md-6">
-          <h2>size</h2>
-          <form id = "order">
-            <div "pizza-complete">
-              <div class="zaasize">
-                <select class="size">
-                  <option id = "sm">small</option>
-                  <option id = "md">medium</option>
-                  <option id = "lg">large</option>
-                </select>
-
-                <h2>toppings</h2>
-                <div class="zaatoppings">
-                  <select class="toppings">
-                    <option id = "pepperoni">pepperoni</option>
-                    <option id = "sausage">sausage</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <button type="button" id = "pizzaSubmit">Order</button>
-          </form>
-        </div>
-        <div class="col-md-6">
-          <div id = "results">
-            <div id = "price">
-              <ul>
-
-              </ul>
-              <h1 id = "totalFinal"></h1>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-    </div>
-  </body>
+   <div class="container">
+     <div class="jumbotron">
+     <h1>Order Yo Pizza</h1>
+   </div>
+     <div class="row">
+       <div class="col-sm-4">
+         <h2>Sizes</h2>
+         <form id="new-pizza-order">
+           <div id="extra-pizzas">
+             <div class="another-pizza">
+               <select class="form-control new-pizza-size">
+                 <option id="size1" value="6">Small</option>
+                 <option id="size2" value="8">Medium</option>
+                 <option id="size3" value="10">Large</option>
+               </select>
+               <p>
+                 prices for pizza are sm-$6, md-$8, an lg-$10
+               </p>
+               <h2>Toppings</h2>
+               <h3>Each topping is an extra $1.00</h3>
+               <div class="checkbox">
+                 <label><input type="checkbox" name="toppings" value="0.5">pepperoni</label>
+               </div>
+               <div class="checkbox">
+                 <label><input type="checkbox" name="toppings" value="0.5">sausage</label>
+               </div>
+               <div class="checkbox">
+                 <label><input type="checkbox" name="toppings" value="0.5">garlic crust</label>
+               </div>
+             </div>
+           </div>
+           <span class="btn btn-warning" id="add-more-pizza">Let's get another one</span>
+           <button type="submit" class="btn btn-danger">Place Order</button>
+         </form>
+       </div>
+       <div class="col-sm-4">
+         <div id="show-pizza-results">
+           <h2>Your Pizza Order:</h2>
+           <div id="pizza-price">
+             <ul>
+             </ul>
+           </div>
+           <h1 id="complete-total"></h1>
+         </div>
+       </div>
+     </div>
+   </div>
+ </body>
 </html>
