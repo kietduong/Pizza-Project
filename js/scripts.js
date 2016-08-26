@@ -1,5 +1,5 @@
 // Back End
-function AllOrders () {
+function order () {
   this.pizzaTotal = [];
   this.costTotal = 0;
 }
@@ -36,24 +36,21 @@ $(document).ready(function(){
                               '<h2>Sizes</h2>' +
                               '<div class="another-pizza">' +
                               '<select class="form-control new-pizza-size">' +
-                               '<option id="size1" value="6">Small</option>' +
-                               '<option id="size2" value="8">Medium</option>' +
-                               '<option id="size3" value="10">Large</option>' +
+                               '<option value="6">Small</option>' +
+                               '<option value="8">Medium</option>' +
+                               '<option value="10">Large</option>' +
                                '</select>' +
                                '<h2>Toppings</h2>' +
-                               '<h3>Each topping is an extra $0.50</h3>' +
+                               '<h3>Each topping is an extra $1.00</h3>' +
                                '<div class="checkbox">' +
-                               '<label><input type="checkbox" name="toppings" value="1">Extra Cheese</label>' +
+                               '<label><input type="checkbox" name="toppings" value="1">pepperoni</label>' +
                                '</div>' +
                                '<div class="checkbox">' +
-                               '<label><input type="checkbox" name="toppings" value="1">Mushrooms</label>' +
+                               '<label><input type="checkbox" name="toppings" value="1">sausage</label>' +
                                '</div>' +
                                '<div class="checkbox">' +
-                               '<label><input type="checkbox" name="toppings" value="1">Peppers</label>' +
-                               '</div>' +
-                               '<div class="checkbox">' +
-                               '<label><input type="checkbox" name="toppings" value="1">Sausage</label>' +
-                               '</div>' +
+                               '<label><input type="checkbox" name="toppings" value="1">garlic crust</label>' +
+                               '</div>'  +
                                '</div>'
     );
   });
@@ -61,8 +58,8 @@ $(document).ready(function(){
   $("#new-pizza-order").submit(function(event){
     event.preventDefault();
 
-    var newAllOrders = new AllOrders ();
-    var overallTotal = newAllOrders.costTotal;
+    var newOrder = new order ();
+    var overallTotal = newOrder.costTotal;
 
     $(".another-pizza").each(function() {
       var inputtedPizzaSize = parseInt( $(this).find( $("select.new-pizza-size") ) .val());
@@ -71,11 +68,11 @@ $(document).ready(function(){
 
       var newPizza = new Pizza(inputtedPizzaToppings, inputtedPizzaSize, checkedBoxes);
 
-      newAllOrders.pizzaTotal.push(newPizza);
+      newOrder.pizzaTotal.push(newPizza);
 
       newPizza.costOfToppings();
 
-      var pizzaNumber = newAllOrders.pizzaTotal.indexOf(newPizza);
+      var pizzaNumber = newOrder.pizzaTotal.indexOf(newPizza);
 
 
       $("#show-pizza-results").show();

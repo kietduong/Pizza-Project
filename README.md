@@ -44,6 +44,6 @@ Bootstrap_
 
 ### License
 
-*This webpage is licensed under the GPL license.*
+*This webpage is licensed under the MLI license.*
 
 Copyright (c) 2016 **_Kiet Duong_**
