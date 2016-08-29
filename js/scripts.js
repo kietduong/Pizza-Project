@@ -62,13 +62,13 @@ $(document).ready(function() {
     var overallTotal = zaaOrder.cost;
 
     $("#pizza-order").each(function() {
-      var inputtedPizzaSize = parseInt( $(this).find( $("select.pizza-size")).val());
+      var sizeInput = parseInt($(this).find( $("select.pizza-size")).val());
 
-      var inputtedPizzaToppings = 0;
+      var toppingInput = 0;
 
       var checkedBoxes = $(this).find( document.getElementsByName("toppings"));
 
-      var newPizza = new pizza(inputtedPizzaToppings, inputtedPizzaSize, checkedBoxes);
+      var newPizza = new pizza(toppingInput, sizeInput, checkedBoxes);
 
       zaaOrder.total.push(newPizza);
 
