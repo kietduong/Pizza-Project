@@ -15,10 +15,10 @@
      <div class="row">
        <div class="col-sm-4">
          <h2>Sizes</h2>
-         <form id="new-pizza-order">
-           <div id="extra-pizzas">
-             <div class="another-pizza">
-               <select class="form-control new-pizza-size">
+         <form id = "orderForm">
+           <div id = "pizza-order">
+             <div class="second-pizza">
+               <select class="form-control pizza-size">
                  <option value="6">Small</option>
                  <option value="8">Medium</option>
                  <option value="10">Large</option>
@@ -29,17 +29,17 @@
                <h2>Toppings</h2>
                <h3>Each topping is an extra $1.00</h3>
                <div class="checkbox">
-                 <label><input type="checkbox" name="toppings" value="0.5">pepperoni</label>
+                 <label><input type="checkbox" name="toppings" value="1">pepperoni</label>
                </div>
                <div class="checkbox">
-                 <label><input type="checkbox" name="toppings" value="0.5">sausage</label>
+                 <label><input type="checkbox" name="toppings" value="1">sausage</label>
                </div>
                <div class="checkbox">
-                 <label><input type="checkbox" name="toppings" value="0.5">garlic crust</label>
+                 <label><input type="checkbox" name="toppings" value="1">garlic crust</label>
                </div>
              </div>
            </div>
-           <span class="btn btn-warning" id="add-more-pizza">Let's get another one</span>
+           <span class="btn btn-warning" id="add-more-pizza">Let's get another one </span>
            <button type="submit" class="btn btn-danger">Place Order</button>
          </form>
        </div>
@@ -50,7 +50,7 @@
              <ul>
              </ul>
            </div>
-           <h1 id="complete-total"></h1>
+           <h1 id="final-total"></h1>
          </div>
        </div>
      </div>

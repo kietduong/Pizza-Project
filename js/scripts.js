@@ -1,47 +1,47 @@
-// Back End
+//Back End
 function order () {
-  this.pizzaTotal = [];
-  this.costTotal = 0;
+  this.total = [];
+  this.cost = 0;
 }
 
-function Pizza (toppings, size, chosen) {
-  this.pizzaToppings = toppings;
-  this.pizzaSize = size;
-  this.chosenToppings = chosen;
+function pizza (size, toppings, selectedToppings) {
+  this.selectSize = size;
+  this.availableToppings = toppings;
+  this.toppingsSelected = selectedToppings;
 }
 
-Pizza.prototype.costOfToppings = function (chosen, toppings) {
-  for (i = 0; i < this.chosenToppings.length; i += 1) {
-    if (this.chosenToppings[i].checked) {
-      this.pizzaToppings += 1;
+pizza.prototype.toppingsTotal = function (availableToppings, selectedToppings) {
+  for (i = 0; i < this.toppingsSelected.length; i +=1) {
+    if (this.toppingsSelected[i].checked) {
+      this.availableToppings += 1;
     }
   }
 }
 
-Pizza.prototype.costOfPizza = function (toppings, size) {
-  var pizzaPrice = this.pizzaToppings + this.pizzaSize;
-  return pizzaPrice;
+pizza.prototype.pizzaTotal = function (size, toppings) {
+  var price = this.selectSize + this.availableTopppings;
+  return price;
 }
 
-function resetFields() {
-  $("select.new-pizza-size").val("");
+function resetSelections() {
+  $("select.pizza-size").val("");
   $('input:checkbox').removeAttr('checked');
 }
 
 // Front End
-$(document).ready(function(){
 
-  $("#add-more-pizza").click(function(){
-    $("#extra-pizzas").append('<p>___________________________________</p>' +
+$(document).ready(function() {
+
+  $("#add-more-pizza").click(function() {
+    $("#pizza-order").append('<p>___________________________________</p>' +
                               '<h2>Sizes</h2>' +
-                              '<div class="another-pizza">' +
-                              '<select class="form-control new-pizza-size">' +
+                              '<div id="orderForm">' +
+                              '<select class="form-control pizza-size">' +
                                '<option value="6">Small</option>' +
                                '<option value="8">Medium</option>' +
                                '<option value="10">Large</option>' +
                                '</select>' +
                                '<h2>Toppings</h2>' +
-                               '<h3>Each topping is an extra $1.00</h3>' +
                                '<div class="checkbox">' +
                                '<label><input type="checkbox" name="toppings" value="1">pepperoni</label>' +
                                '</div>' +
@@ -50,38 +50,40 @@ $(document).ready(function(){
                                '</div>' +
                                '<div class="checkbox">' +
                                '<label><input type="checkbox" name="toppings" value="1">garlic crust</label>' +
-                               '</div>'  +
+                               '</div>' +
                                '</div>'
     );
   });
 
-  $("#new-pizza-order").submit(function(event){
+  $("#orderForm").submit(function(event) {
     event.preventDefault();
 
-    var newOrder = new order ();
-    var overallTotal = newOrder.costTotal;
+    var zaaOrder = new order ();
+    var overallTotal = zaaOrder.cost;
 
-    $(".another-pizza").each(function() {
-      var inputtedPizzaSize = parseInt( $(this).find( $("select.new-pizza-size") ) .val());
+    $("#pizza-order").each(function() {
+      var inputtedPizzaSize = parseInt( $(this).find( $("select.pizza-size")).val());
+
       var inputtedPizzaToppings = 0;
-      var checkedBoxes = $(this).find( document.getElementsByName("toppings") );
 
-      var newPizza = new Pizza(inputtedPizzaToppings, inputtedPizzaSize, checkedBoxes);
+      var checkedBoxes = $(this).find( document.getElementsByName("toppings"));
 
-      newOrder.pizzaTotal.push(newPizza);
+      var newPizza = new pizza(inputtedPizzaToppings, inputtedPizzaSize, checkedBoxes);
 
-      newPizza.costOfToppings();
+      zaaOrder.total.push(newPizza);
 
-      var pizzaNumber = newOrder.pizzaTotal.indexOf(newPizza);
+      newPizza.toppingsTotal();
+
+      var pizzaNumber = zaaOrder.total.indexOf(newPizza);
 
 
       $("#show-pizza-results").show();
-      $("#pizza-price").append("<li> Pizza " + (pizzaNumber + 1) + ": $" + newPizza.costOfPizza() + "</li>");
-      overallTotal = overallTotal + newPizza.costOfPizza();
+      $("#pizza-price").append("<li> Pizza " + (pizzaNumber + 1) + ": $" + newPizza.pizzaTotal() + "</li>");
+      overallTotal = overallTotal + newPizza.pizzaTotal();
     });
 
-    $("#complete-total").text("Your Total Order is $" + overallTotal);
-    resetFields();
+    $("#final-total").text("Your Total Order is $" + overallTotal);
+    resetSelections();
 
   });
 });

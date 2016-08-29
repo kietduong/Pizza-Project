@@ -10,13 +10,23 @@ _This webpage will incorporate HTML, CSS, Javascript, and JQuery to act as a piz
 
 ###### Specs:
 
-###### The program will take in the name of the person ordering
-* _Example Input: What is your name_
-* _Example Output: Kiet_
+###### Webpage will allow user to choose from different pizza sizes
+* _Example Input: select your pizze size_
+* _Example Output: [small, medium, large]_
 
-###### The program will be allow the user to choose toppings for the pizza
+###### Webpage will allow users to choose from a list of toppings
 * _Example Input: toppings:_
 * _Example Output: [cheese, sausage, etc.]_
+
+###### Webpage will allow users to add another pizza
+* _Example Input: add another pizza button_
+* _Example Output: another pizza selector shows up_
+
+###### Webpage will add up price of toppings and add it to the price of the pizza
+* _Example Input: makes pizza_
+* _Example Output: "Your final total is..."_
+
+
 
 
 ## Setup/Installation Requirements
@@ -28,7 +38,7 @@ _You must host this webpage locally_
 
 ## Known Bugs
 
-_None yet_
+_Website will not add up price of more than one pizza_
 
 ## Support and contact details
 
