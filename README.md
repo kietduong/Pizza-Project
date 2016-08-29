@@ -26,7 +26,9 @@ _This webpage will incorporate HTML, CSS, Javascript, and JQuery to act as a piz
 * _Example Input: makes pizza_
 * _Example Output: "Your final total is..."_
 
-
+### Webpage url and github url
+* _Webpage: https://kietduong.github.io/Pizza-Project/_
+* _Github: https://github.com/kietduong/Pizza-Project_
 
 
 ## Setup/Installation Requirements
