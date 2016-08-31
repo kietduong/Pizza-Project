@@ -10,25 +10,13 @@ _This webpage will incorporate HTML, CSS, Javascript, and JQuery to act as a piz
 
 ###### Specs:
 
-###### Webpage will allow user to choose from different pizza sizes
+###### program can count and assign values to pizza size and toppings
 * _Example Input: select your pizze size_
-* _Example Output: [small, medium, large]_
+* _Example Output: [small - $6, medium -$8 , large - $10, all toppings are $1]_
 
-###### Webpage will allow users to choose from a list of toppings
-* _Example Input: toppings:_
-* _Example Output: [cheese, sausage, etc.]_
-
-###### Webpage will allow users to add another pizza
-* _Example Input: add another pizza button_
-* _Example Output: another pizza selector shows up_
-
-###### Webpage will add up price of toppings and add it to the price of the pizza
-* _Example Input: makes pizza_
-* _Example Output: "Your final total is..."_
-
-### Webpage url and github url
-* _Webpage: https://kietduong.github.io/Pizza-Project/_
-* _Github: https://github.com/kietduong/Pizza-Project_
+###### program can add up pizza size, toppings and return total value
+* _Example Input: pizza size = small, $6 + garlic crust-$1_
+* _Example Output: [total = $7]_
 
 
 ## Setup/Installation Requirements
