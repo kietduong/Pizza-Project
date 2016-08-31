@@ -1,16 +1,16 @@
 //Back End
-function order () {
+function Order () {
   this.total = [];
   this.cost = 0;
 }
 
-function pizza (size, toppings, selectedToppings) {
+function Pizza (size, toppings, selectedToppings) {
   this.selectSize = size;
   this.availableToppings = toppings;
   this.toppingsSelected = selectedToppings;
 }
 
-pizza.prototype.toppingsTotal = function (availableToppings, selectedToppings) {
+Pizza.prototype.toppingsTotal = function (availableToppings, selectedToppings) {
   for (i = 0; i < this.toppingsSelected.length; i += 1) {
     if (this.toppingsSelected[i].checked) {
       this.availableToppings += 1;
@@ -18,7 +18,7 @@ pizza.prototype.toppingsTotal = function (availableToppings, selectedToppings) {
   }
 }
 
-pizza.prototype.pizzaTotal = function (size, toppings) {
+Pizza.prototype.pizzaTotal = function (size, toppings) {
   var price = this.selectSize + this.availableToppings;
 
   console.log(this.selectSize);
@@ -62,7 +62,7 @@ $(document).ready(function() {
   $("#orderForm").submit(function(event) {
     event.preventDefault();
 
-    var zaaOrder = new order();
+    var zaaOrder = new Order();
     var overallTotal = zaaOrder.cost;
 
 
@@ -73,7 +73,7 @@ $(document).ready(function() {
 
       var ToppingsPicked = $(this).find( document.getElementsByName("toppings"));
       console.log( ToppingsPicked)
-      var newPizza = new pizza(toppingInput, sizeInput, ToppingsPicked);
+      var newPizza = new Pizza(toppingInput, sizeInput, ToppingsPicked);
 
       zaaOrder.total.push(newPizza);
 
